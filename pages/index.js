@@ -1,65 +1,106 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import { useState } from "react";
+
+import styled from "styled-components";
+
+const Container = styled.div`
+	min-height: 100vh;
+	padding: 0 0.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+`;
+
+const Main = styled.main`
+	padding: 3rem 0;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+`;
+
+const Title = styled.h1`
+	color: #0070f3;
+	font-size: 5rem;
+	padding: 0.3rem;
+`;
+const Footer = styled.footer`
+	width: 100%;
+	height: 100px;
+	border-top: 1px solid #eaeaea;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	& > a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		& > img {
+			margin-left: 0.5rem;
+		}
+	}
+`;
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+	const [imagePreview, setImagePreview] = useState("");
+	const [imageToUpload, setImageToUpload] = useState(null);
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+	const handleInputChange = async e => {
+		const file = e.target.files[0];
+		setImageToUpload(file);
+		previewImageFile(file);
+	};
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+	function previewImageFile(file) {
+		const reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onloadend = () => {
+			setImagePreview(reader.result);
+		};
+	}
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+	const uploadImage = () => {
+		const formData = new FormData();
+		formData.append("file", imageToUpload);
+		formData.append("upload_preset", "dlyu4xhy");
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+		fetch("https://api.cloudinary.com/v1_1/dhqp2dd6b/image/upload", {
+			method: "POST",
+			body: formData,
+		})
+			.then(res => res.json())
+			.then(result => console.log(result));
+	};
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+	return (
+		<Container>
+			<Head>
+				<title>Create Next App</title>
+				<link rel='icon' href='/favicon.ico' />
+			</Head>
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+			<Main>
+				<Title>Forged Bot !!!!</Title>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+				<img src={imagePreview} />
+				<button onClick={uploadImage}>upload Image</button>
+				<form>
+					<input type='file' onChange={handleInputChange} />
+				</form>
+			</Main>
+
+			<Footer>
+				<a
+					href='https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
+					target='_blank'
+					rel='noopener noreferrer'>
+					Powered by <img src='/vercel.svg' alt='Vercel Logo' />
+				</a>
+			</Footer>
+		</Container>
+	);
 }
