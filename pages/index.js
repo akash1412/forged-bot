@@ -147,6 +147,7 @@ export default function Home() {
 					</Form>
 				</fieldset>
 				<img src={predictedImage} />
+				<button></button>
 			</Main>
 		</Container>
 	);
