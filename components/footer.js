@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 const FooterStyle = styled.footer`
+	height: 1.4rem;
+	width: 100%;
 	background-color: ${({ theme }) => theme.color.deepBlue};
 	text-align: center;
 
-	& > h2 {
-		font-size: 1.5rem;
+	& > h3 {
 		font-weight: 400;
 		color: #fff;
 	}
