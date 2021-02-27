@@ -1,4 +1,7 @@
+import { useContext, useEffect } from "react";
 import styled from "styled-components";
+import ImageOverview from "../components/ImageOverview";
+import { GlobalContext } from "./../context/globalContext";
 
 const Wrapper = styled.div`
 	background-color: ${({ theme }) => theme.color.deepBlue};
@@ -7,7 +10,7 @@ const Wrapper = styled.div`
 `;
 
 const Main = styled.div`
-	padding: 3rem 0;
+	padding: 2rem 0;
 	width: 50%;
 	margin: 0 auto;
 	display: flex;
@@ -24,7 +27,7 @@ const SubTitle = styled.h2`
 `;
 
 const ContentWrapper = styled.div`
-	margin-top: 2rem;
+	/* margin-top: 2rem; */
 	display: flex;
 	flex-direction: column;
 `;
@@ -35,11 +38,13 @@ const PreviewImageContainer = styled.div`
 
 const ImagePlaceholder = styled.img`
 	width: 100%;
-	object-fit: cover;
+
 	height: 25rem;
 `;
 
 const Button = styled.button`
+	cursor: pointer;
+	opacity: ${({ isLoading }) => (isLoading ? ".8" : "1")};
 	align-self: center;
 	padding: 1rem 3rem;
 	outline: none;
@@ -52,20 +57,45 @@ const Button = styled.button`
 `;
 
 const ProductPage = () => {
+	const {
+		imagePreview,
+		isImageUploading,
+		predictedImage,
+		Analyze,
+		resetHandler,
+	} = useContext(GlobalContext);
+
+	useEffect(() => {
+		return () => {
+			resetHandler();
+		};
+	}, []);
+
 	return (
 		<Wrapper>
 			<Main>
 				<Title>Check Results</Title>
 				<ContentWrapper>
-					<PreviewImageContainer>
-						<SubTitle>Origin Document</SubTitle>
-						<ImagePlaceholder src='/homeImg.png' />
-					</PreviewImageContainer>
-					<PreviewImageContainer>
-						<SubTitle>Result</SubTitle>
-						<ImagePlaceholder src='/homeImg.png' />
-					</PreviewImageContainer>
-					<Button>check another document</Button>
+					{imagePreview && (
+						<PreviewImageContainer>
+							<SubTitle>Original Document</SubTitle>
+							<ImagePlaceholder src={imagePreview} />
+						</PreviewImageContainer>
+					)}
+
+					{predictedImage && (
+						<PreviewImageContainer>
+							<SubTitle>Result</SubTitle>
+							<ImagePlaceholder src={predictedImage} />
+						</PreviewImageContainer>
+					)}
+
+					<Button
+						isLoading={isImageUploading}
+						disabled={isImageUploading}
+						onClick={Analyze}>
+						Analyze
+					</Button>
 				</ContentWrapper>
 			</Main>
 		</Wrapper>

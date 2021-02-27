@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 const FooterStyle = styled.footer`
+	width: 100%;
+	padding: 20px;
 	background-color: ${({ theme }) => theme.color.deepBlue};
 	text-align: center;
-
-	& > h2 {
-		font-size: 1.5rem;
+	font-size: 12px;
+	& > h3 {
+		font-size: 12px;
 		font-weight: 400;
 		color: #fff;
 	}
@@ -14,7 +16,7 @@ const FooterStyle = styled.footer`
 const Footer = () => (
 	<FooterStyle>
 		<h2>
-			Made with ❤ by Team{" "}
+			Made with ❤️ by Team{" "}
 			<a href='https://xiken.tech' target='_blank'>
 				Xiken.tech
 			</a>
