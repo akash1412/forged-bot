@@ -119,7 +119,7 @@ const SecTwo = styled.div`
 	justify-content: center;
 `;
 const SecTwoHead = styled.div`
-	text-align: left;
+	text-align: center;
 	color: #02244a;
 	font-size: 36px;
 	font-weight: 600;
@@ -262,16 +262,7 @@ const TeamBoxRightContent = styled.div`
 	width: 100%;
 	color: #d7e4f2;
 `;
-const Footer = styled.div`
-	width: 100%;
-	display: flex;
-	color: #6ed0dd;
-	background-color: #02244a;
-	height: 60px;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-`;
+ 
 const FileLabel = styled.label`
 	padding: 17px;
 	border-radius: 10px;
