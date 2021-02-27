@@ -20,51 +20,53 @@ const SecOne = styled.div`
 const SecOneMain = styled.div`
 	margin: 100px 300px;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	@media (min-width: 768px) {
-		flex-direction: row;
+	@media (max-width: 768px) {
+		flex-direction: column;
+		margin: 50px 10px;
 	}
 `;
 const SecOnLeft = styled.div`
 	display: flex;
 	padding: 10px 0rem;
-	width: 100%;
+	width: 60%;
 	flex-direction: column;
-	@media (min-width: 768px) {
-		width: 60%;
+	@media (max-width: 768px) {
+		width: 100%;
 	}
 `;
 const SecOneRight = styled.div`
 	padding: 0 0.5rem;
 	display: flex;
-	width: 100%;
+	width: 40%;
 	flex-direction: column;
-	@media (min-width: 768px) {
-		width: 40%;
+	@media (max-width: 768px) {
+		width: 100%;
 	}
 `;
 const SecOneHead = styled.div`
 	padding: 0 0.5rem;
 	color: #fff;
-	font-size: 34px;
+	font-size: 72px;
 	font-weigth: 600;
 	text-align: ḷeft;
-	@media (min-width: 768px) {
-		font-size: 72px;
+	@media (max-width: 768px) {
+		font-size: 34px;
 	}
 `;
-const SecOnePara = styled.div`
+const SecOnePara = styled.p`
 	padding: 0 0.5rem;
 	margin: 30px 0;
-	width: 500px;
 	font-weigth: 400;
 	color: #fff;
-	font-size: 12px;
+	width:500px;
+	font-size: 27px;
 	text-align: left;
-	@media (min-width: 768px) {
-		font-size: 27px;
+	@media (max-width: 768px) {
+		font-size: 17px;
+		width:unset;
 	}
 `;
 const SecOneImg = styled.div`
@@ -74,6 +76,12 @@ const SecOneImg = styled.div`
 	background-image: url("/homeImg.png");
 	background-size: contain;
 	background-repeat: no-repeat;
+	display:block;
+	@media (max-width: 768px) {
+		width: 100px;
+		height: 100px;
+		display:none;
+	}
 `;
 
 const SecOneUploadButton = styled.button`
@@ -87,13 +95,30 @@ const SecOneUploadButton = styled.button`
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	width: 275px;
+	width: 75px;
 	outline: 0;
 	border: none;
 	cursor: pointer;
 	transition: all 0.2s ease;
 	&:hover {
 		transform: scale(1.1);
+	}
+	@media (max-width: 768px) {
+		margin: 5px 0 10px 0;
+		width: 105px;
+	}
+`;
+const SecOneImgMobile = styled.div`
+	margin: 27px;
+	align-self:center;
+	background-image: url("/homeImg.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	display:none;
+	@media (max-width: 768px) {
+		display:block;
+		width: 275px;
+		height: 170px;
 	}
 `;
 const SaveIcon = styled.div`
@@ -109,6 +134,9 @@ const SecOneNote = styled.div`
 	font-size: 15px;
 	margin: 15px 0;
 	text-align: left;
+	@media (max-width: 768px) {
+		font-size: 12px;
+	}
 `;
 const SecTwo = styled.div`
 	background-image: url(/bgSec2.png);
@@ -117,6 +145,9 @@ const SecTwo = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	@media(max-width:768px){
+		padding: 0px 10px;
+	}
 `;
 const SecTwoHead = styled.div`
 	text-align: center;
@@ -124,6 +155,12 @@ const SecTwoHead = styled.div`
 	font-size: 36px;
 	font-weight: 600;
 	margin: 50px 30px;
+	@media(max-width:768px){
+		margin: 50px 10px;
+		align-self:left;
+		font-size:30px;
+		padding: 0px 10px;
+	}
 `;
 const SecTwoStepsContainer = styled.div`
 	display: flex;
@@ -133,6 +170,9 @@ const SecTwoStepsContainer = styled.div`
 	margin: 50px;
 	width: 100%;
 	-webkit-align-items: start;
+	@media(max-width:768px){
+		margin: 20px 5px;
+	}
 `;
 const SecTwoStepsNumber = styled.div`
 	height: 40px;
@@ -143,6 +183,9 @@ const SecTwoStepsNumber = styled.div`
 	background-color: #df622c;
 	justify-content: center;
 	align-items: center;
+	@media(max-width:768px){
+		font-size: 16px;
+	}
 `;
 const SecTwoStepsTitle = styled.div`
 	font-size: 30px;
@@ -150,6 +193,12 @@ const SecTwoStepsTitle = styled.div`
 	padding: 0px 50px;
 	width: 420px;
 	margin: 0 100px 0 0;
+	@media(max-width:768px){
+		padding: 0px 12px;
+		margin: 0 5px 0 0;
+		width: unset;
+		font-size: 16px;
+	}
 `;
 const SecTwoStepsImg = styled.div`
 	height: 114px;
@@ -164,12 +213,19 @@ const SecTwoStepsImg = styled.div`
 			: props.step2
 			? 'url("/workStep2.png")'
 			: 'url("/workStep3.png")'};
+	@media(max-width:768px){
+		margin: 10px;
+	}
 `;
+
 const SecTwoNote = styled.p`
 	display: flex;
 	margin: 0 100px;
 	font-size: 18px;
 	align-self: center;
+	@media(max-width:768px){
+		margin: 10px;
+	}
 `;
 const SecTwoImg = styled.div`
 	display: flex;
@@ -178,6 +234,11 @@ const SecTwoImg = styled.div`
 	background-color: white;
     height: 210px;
     width: 390px;
+	@media(max-width:768px){
+		margin: 10px;
+		height: 110px;
+		width: 290px;
+	}
 `;
 const SecThree = styled.div`
 	background-image: url(/bgSec3.png);
@@ -186,6 +247,9 @@ const SecThree = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	@media(max-width:768px){
+		padding: 10px;
+	}
 `;
 const SecThreeImgLeft = styled.div`
 	display: flex;
@@ -194,6 +258,12 @@ const SecThreeImgLeft = styled.div`
 	background-color: white;
     height: 195px;
     width: 400px;
+	@media(max-width:768px){
+		height: 145px;
+		width: 220px;
+		margin: 60px 0 0 0px;
+		align-self:flex-start;
+	}
 `;
 const SecThreeImgRight = styled.div`
 	display: flex;
@@ -202,6 +272,12 @@ const SecThreeImgRight = styled.div`
     background-color: white;
     height: 195px;
     width: 400px;
+	@media(max-width:768px){
+		height: 145px;
+		width: 220px;
+		margin: 60px 0 0 0px;
+		align-self:flex-end;
+	}
 `;
 const SecFour = styled.div`
 	background-image: url(/bgSec4.png);
@@ -210,12 +286,20 @@ const SecFour = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	@media(max-width:768px){
+		padding: 10px;
+	}
 `;
 const SecFourTeamTop = styled.div`
 	display: flex;
 	margin: 60px 0px;
 	flex-direction: row;
 	justify-content: space-between;
+	@media(max-width:768px){
+		flex-direction: column;
+		align-self:flex-start;
+		margin: 0px 0px;
+	}
 `;
 const SecFourTeamMiddle = styled.div`
 	display: flex;
@@ -223,6 +307,11 @@ const SecFourTeamMiddle = styled.div`
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	@media(max-width:768px){
+		flex-direction: column;
+		align-self:flex-start;
+		margin: 0px 0px;
+	}
 `;
 const TeamBox = styled.div`
 	display: flex;
@@ -231,7 +320,11 @@ const TeamBox = styled.div`
 	flex-direction: row;
 	background-color: #02244a;
 	border-radius: 65px;
+	margin: 0px 0;
 	justify-content: center;
+	@media(max-width:768px){
+		margin: 30px 0;
+	}
 `;
 const TeamBoxLeft = styled.div`
 	width: 35%;
@@ -282,6 +375,11 @@ const FileLabel = styled.label`
 	&:hover {
 		transform: scale(1.1);
 	}
+	@media (max-width: 768px) {
+		margin: 0px 0 10px 0;
+		width: 275px;
+		align-self:center;
+	}
 `;
 
 const FileInput = styled.input`
@@ -295,15 +393,17 @@ export default function Home() {
 		<Container>
 			<Head>
 				<title>Forged Bot</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<SecOne>
 				<SecOneMain>
 					<SecOnLeft>
-						<SecOneHead>Forged Bot</SecOneHead>
+						<SecOneHead>Forged App</SecOneHead>
 						<SecOnePara>
 							The first online tool to detect manipulated images using AI.
 						</SecOnePara>
+						<SecOneImgMobile></SecOneImgMobile>
 						<FileLabel htmlFor='upload-img'><SaveIcon></SaveIcon>upload image</FileLabel>
 						<FileInput
 							type='file'
