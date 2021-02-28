@@ -1,7 +1,18 @@
 import { useContext, useEffect } from "react";
 import styled from "styled-components";
-import ImageOverview from "../components/ImageOverview";
+import Lottie from "react-lottie";
 import { GlobalContext } from "./../context/globalContext";
+import ImageOverview from "../components/ImageOverview";
+
+import * as animationData from "../public/lf30_0pkhkmwj.json";
+const defaultOptions = {
+	loop: true,
+	autoplay: true,
+	animationData: animationData,
+	rendererSettings: {
+		preserveAspectRatio: "xMidYMid slice",
+	},
+};
 
 const Wrapper = styled.div`
 	background-color: ${({ theme }) => theme.color.deepBlue};
@@ -78,7 +89,7 @@ const ProductPage = () => {
 				<ContentWrapper>
 					{imagePreview && (
 						<PreviewImageContainer>
-							<SubTitle>Original Document</SubTitle>
+							<SubTitle>Morphed Image</SubTitle>
 							<ImagePlaceholder src={imagePreview} />
 						</PreviewImageContainer>
 					)}
@@ -98,6 +109,12 @@ const ProductPage = () => {
 					</Button>
 				</ContentWrapper>
 			</Main>
+			{/* <Lottie
+				options={defaultOptions}
+				width={400}
+				height={400}
+				isStopped={false}
+			/> */}
 		</Wrapper>
 	);
 };

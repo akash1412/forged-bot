@@ -62,7 +62,7 @@ const GlobalContextProvider = ({ children }) => {
 	const Analyze = async () => {
 		try {
 			const res = await axios({
-				url: "http://d708945b67d0.ngrok.io/predict",
+				url: "http://fcfd57e81fbd.ngrok.io/predict",
 				headers: {
 					"Context-Type": "application/json",
 				},
@@ -71,6 +71,8 @@ const GlobalContextProvider = ({ children }) => {
 					url: cloudImage,
 				},
 			});
+
+			console.log(res.data);
 
 			setPredictedImage(res.data.url);
 		} catch (error) {
