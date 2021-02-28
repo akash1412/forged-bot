@@ -62,7 +62,7 @@ const GlobalContextProvider = ({ children }) => {
 	const Analyze = async () => {
 		try {
 			const res = await axios({
-				url: "https://6c4dbd40f592.ngrok.io/predict",
+				url: "http://d708945b67d0.ngrok.io/predict",
 				headers: {
 					"Context-Type": "application/json",
 				},
