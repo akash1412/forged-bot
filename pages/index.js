@@ -251,31 +251,67 @@ const SecThree = styled.div`
 		padding: 10px;
 	}
 `;
-const SecThreeImgLeft = styled.div`
+const SecThreeImgLeft1 = styled.div`
 	display: flex;
-	margin: 60px 0 0 115px;
+	margin: 0px 0 0 115px;
 	align-self: flex-start;
-	background-color: white;
-    height: 195px;
-    width: 400px;
+	background-image: url(/1_1.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+    height: 300px;
+    width: 570px;
 	@media(max-width:768px){
-		height: 145px;
-		width: 220px;
-		margin: 60px 0 0 0px;
+		height: 140px;
+		width: 325px;
+		margin: 0px 0 0 0px;
 		align-self:flex-start;
 	}
 `;
-const SecThreeImgRight = styled.div`
+const SecThreeImgLeft2 = styled.div`
+	display: flex;
+	margin: 0px 0 0 115px;
+	align-self: flex-start;
+	background-image: url(/2_1.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+    height: 300px;
+    width: 570px;
+	@media(max-width:768px){
+		height: 140px;
+		width: 325px;
+		margin: 0px 0 0 0px;
+		align-self:flex-start;
+	}
+`;
+const SecThreeImgRight1 = styled.div`
 	display: flex;
 	align-self: flex-end;
-    margin: 60px 115px 0 0;
-    background-color: white;
-    height: 195px;
-    width: 400px;
+    margin: 0px 115px 0 0;
+    background-image: url(/3_1.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+    height: 300px;
+    width: 570px;
 	@media(max-width:768px){
-		height: 145px;
-		width: 220px;
-		margin: 60px 0 0 0px;
+		height: 140px;
+		width: 325px;
+		margin: 0px 0 0 0px;
+		align-self:flex-end;
+	}
+`;
+const SecThreeImgRight2 = styled.div`
+	display: flex;
+	align-self: flex-end;
+    margin: 0px 115px 0 0;
+    background-image: url(/4_1.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+    height: 300px;
+    width: 570px;
+	@media(max-width:768px){
+		height: 140px;
+		width: 325px;
+		margin: 0px 0 0 0px;
 		align-self:flex-end;
 	}
 `;
@@ -434,10 +470,10 @@ export default function Home() {
 			</SecTwo>
 			<SecThree>
 				<SecTwoHead>Results</SecTwoHead>
-				<SecThreeImgLeft></SecThreeImgLeft>
-				<SecThreeImgRight></SecThreeImgRight>
-				<SecThreeImgLeft></SecThreeImgLeft>
-				<SecThreeImgRight></SecThreeImgRight>
+				<SecThreeImgLeft1></SecThreeImgLeft1>
+				<SecThreeImgRight1></SecThreeImgRight1>
+				<SecThreeImgLeft2></SecThreeImgLeft2>
+				<SecThreeImgRight2></SecThreeImgRight2>
 			</SecThree>
 			<SecFour>
 				<SecTwoHead>Our Team</SecTwoHead>
