@@ -109,12 +109,6 @@ const ProductPage = () => {
 					</Button>
 				</ContentWrapper>
 			</Main>
-			{/* <Lottie
-				options={defaultOptions}
-				width={400}
-				height={400}
-				isStopped={false}
-			/> */}
 		</Wrapper>
 	);
 };
